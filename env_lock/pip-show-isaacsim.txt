@@ -1,0 +1,32 @@
+Name: isaacsim
+Version: 5.0.0.0
+Summary: A metapackage to manage the Isaac Sim installation
+Home-page: https://developer.nvidia.com/isaac-sim
+Author: Isaac Sim team
+Author-email: 
+License: NVIDIA Proprietary Software
+Location: /home/piene/miniconda3/envs/p73/lib/python3.11/site-packages
+Requires: isaacsim-kernel
+Required-by: 
+Files:
+  ../../../bin/isaacsim
+  isaacsim-5.0.0.0.dist-info/INSTALLER
+  isaacsim-5.0.0.0.dist-info/METADATA
+  isaacsim-5.0.0.0.dist-info/RECORD
+  isaacsim-5.0.0.0.dist-info/REQUESTED
+  isaacsim-5.0.0.0.dist-info/WHEEL
+  isaacsim-5.0.0.0.dist-info/entry_points.txt
+  isaacsim-5.0.0.0.dist-info/top_level.txt
+  isaacsim/LICENSE.txt
+  isaacsim/apps/isaacsim.exp.action_and_event_data_generation.base.kit
+  isaacsim/apps/isaacsim.exp.action_and_event_data_generation.full.kit
+  isaacsim/apps/isaacsim.exp.base.kit
+  isaacsim/apps/isaacsim.exp.base.python.kit
+  isaacsim/apps/isaacsim.exp.base.xr.openxr.kit
+  isaacsim/apps/isaacsim.exp.base.xr.vr.kit
+  isaacsim/apps/isaacsim.exp.base.zero_delay.kit
+  isaacsim/apps/isaacsim.exp.full.fabric.kit
+  isaacsim/apps/isaacsim.exp.full.kit
+  isaacsim/apps/isaacsim.exp.full.streaming.kit
+  isaacsim/apps/isaacsim.exp.selector.kit
+  isaacsim/apps/isaacsim.exp.uidoc.kit

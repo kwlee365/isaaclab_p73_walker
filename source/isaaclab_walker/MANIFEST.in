@@ -1,0 +1,9 @@
+include pyproject.toml
+include setup.py
+recursive-include config *.toml
+
+# Include runtime assets inside the python package.
+recursive-include isaaclab_walker/assets/data *
+
+
+

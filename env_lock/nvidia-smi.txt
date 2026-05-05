@@ -1,0 +1,29 @@
+Wed Feb 11 12:06:13 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.211.01             Driver Version: 570.211.01     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA GeForce RTX 5090        Off |   00000000:01:00.0  On |                  N/A |
+| 36%   57C    P0            177W /  575W |    9929MiB /  32607MiB |     71%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A            3022      G   /usr/lib/xorg/Xorg                     2081MiB |
+|    0   N/A  N/A            3298      G   /usr/bin/gnome-shell                    127MiB |
+|    0   N/A  N/A            4158      G   /usr/share/cursor/cursor                824MiB |
+|    0   N/A  N/A           10031      G   ...exec/xdg-desktop-portal-gnome          8MiB |
+|    0   N/A  N/A          593619      G   /usr/bin/gnome-text-editor               17MiB |
+|    0   N/A  N/A          594799      G   ...ersion=20260107-090051.416000         33MiB |
+|    0   N/A  N/A          749895      G   /usr/bin/nautilus                        25MiB |
+|    0   N/A  N/A          905865      G   /usr/bin/yelp                             6MiB |
+|    0   N/A  N/A         1172529    C+G   ...iniconda3/envs/p73/bin/python       6394MiB |
+|    0   N/A  N/A         1637056      G   .../7720/usr/lib/firefox/firefox         29MiB |
++-----------------------------------------------------------------------------------------+

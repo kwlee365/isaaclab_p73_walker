@@ -1,0 +1,6 @@
+For variant 'global', will try loading '/etc/xdg/xdg-ubuntu/pip/pip.conf'
+For variant 'global', will try loading '/etc/xdg/pip/pip.conf'
+For variant 'global', will try loading '/etc/pip.conf'
+For variant 'user', will try loading '/home/piene/.pip/pip.conf'
+For variant 'user', will try loading '/home/piene/.config/pip/pip.conf'
+For variant 'site', will try loading '/home/piene/miniconda3/envs/p73/pip.conf'

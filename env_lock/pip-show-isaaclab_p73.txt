@@ -1,0 +1,22 @@
+Name: isaaclab_p73
+Version: 1.0.1
+Summary: Isaac Lab locomotion tasks for the P73 robot
+Home-page: 
+Author: Jaeyong Shin
+Author-email: jasonshin0537@snu.ac.kr
+License: BSD-3-Clause
+Location: /home/piene/miniconda3/envs/p73/lib/python3.11/site-packages
+Editable project location: /home/piene/p73/isaaclab_p73/source/isaaclab_p73
+Requires: psutil
+Required-by: 
+Files:
+  __editable__.isaaclab_p73-1.0.1.pth
+  __editable___isaaclab_p73_1_0_1_finder.py
+  __pycache__/__editable___isaaclab_p73_1_0_1_finder.cpython-311.pyc
+  isaaclab_p73-1.0.1.dist-info/INSTALLER
+  isaaclab_p73-1.0.1.dist-info/METADATA
+  isaaclab_p73-1.0.1.dist-info/RECORD
+  isaaclab_p73-1.0.1.dist-info/REQUESTED
+  isaaclab_p73-1.0.1.dist-info/WHEEL
+  isaaclab_p73-1.0.1.dist-info/direct_url.json
+  isaaclab_p73-1.0.1.dist-info/top_level.txt

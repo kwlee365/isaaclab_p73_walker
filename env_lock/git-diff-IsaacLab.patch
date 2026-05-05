@@ -1,0 +1,87 @@
+diff --git a/apps/isaaclab.python.kit b/apps/isaaclab.python.kit
+index 2435019c89c..51358f13cf5 100644
+--- a/apps/isaaclab.python.kit
++++ b/apps/isaaclab.python.kit
+@@ -38,7 +38,11 @@ keywords = ["experience", "app", "usd"]
+ 
+ # Isaac Sim Extra
+ "isaacsim.asset.importer.mjcf" = {}
+-"isaacsim.asset.importer.urdf" = {version = "2.4.31", exact = true}
++# NOTE:
++# Do not hard-pin URDF importer versions here.
++# The exact version can differ across Kit registries / Isaac Sim builds, and a strict pin can
++# make the dependency solver fail on startup (e.g., only 2.4.19 is available in the registry).
++"isaacsim.asset.importer.urdf" = {}
+ "omni.physx.bundle" = {}
+ "omni.physx.tensors" = {}
+ "omni.replicator.core" = {}
+diff --git a/scripts/reinforcement_learning/rsl_rl/play.py b/scripts/reinforcement_learning/rsl_rl/play.py
+index beb92072173..1c60961c4bb 100644
+--- a/scripts/reinforcement_learning/rsl_rl/play.py
++++ b/scripts/reinforcement_learning/rsl_rl/play.py
+@@ -78,6 +78,11 @@ from isaaclab_tasks.utils import get_checkpoint_path
+ from isaaclab_tasks.utils.hydra import hydra_task_config
+ 
+ # PLACEHOLDER: Extension template (do not remove this comment)
++#
++# External task packages (e.g., isaaclab_p73) register Gym environments at import time.
++# Import them only when requested by --task to avoid hard dependencies for unrelated tasks.
++if args_cli.task is not None and args_cli.task.split(":")[-1].startswith("P73-"):
++    import isaaclab_p73  # noqa: F401
+ 
+ 
+ @hydra_task_config(args_cli.task, args_cli.agent)
+@@ -140,7 +145,13 @@ def main(env_cfg: ManagerBasedRLEnvCfg | DirectRLEnvCfg | DirectMARLEnvCfg, agen
+     print(f"[INFO]: Loading model checkpoint from: {resume_path}")
+     # load previously trained model
+     if agent_cfg.class_name == "OnPolicyRunner":
+-        runner = OnPolicyRunner(env, agent_cfg.to_dict(), log_dir=None, device=agent_cfg.device)
++        # Use custom runner for external P73 tasks (enables custom algorithm kwargs such as bound_loss_cfg).
++        if args_cli.task is not None and args_cli.task.split(":")[-1].startswith("P73-"):
++            from isaaclab_p73.algorithms.rsl_rl import P73OnPolicyRunner  # noqa: WPS433
++
++            runner = P73OnPolicyRunner(env, agent_cfg.to_dict(), log_dir=None, device=agent_cfg.device)
++        else:
++            runner = OnPolicyRunner(env, agent_cfg.to_dict(), log_dir=None, device=agent_cfg.device)
+     elif agent_cfg.class_name == "DistillationRunner":
+         runner = DistillationRunner(env, agent_cfg.to_dict(), log_dir=None, device=agent_cfg.device)
+     else:
+diff --git a/scripts/reinforcement_learning/rsl_rl/train.py b/scripts/reinforcement_learning/rsl_rl/train.py
+index 0cce12d7eba..009e95edc90 100644
+--- a/scripts/reinforcement_learning/rsl_rl/train.py
++++ b/scripts/reinforcement_learning/rsl_rl/train.py
+@@ -104,6 +104,11 @@ from isaaclab_tasks.utils.hydra import hydra_task_config
+ logger = logging.getLogger(__name__)
+ 
+ # PLACEHOLDER: Extension template (do not remove this comment)
++#
++# External task packages (e.g., isaaclab_p73) register Gym environments at import time.
++# Import them only when requested by --task to avoid hard dependencies for unrelated tasks.
++if args_cli.task is not None and args_cli.task.split(":")[-1].startswith("P73-"):
++    import isaaclab_p73  # noqa: F401
+ 
+ torch.backends.cuda.matmul.allow_tf32 = True
+ torch.backends.cudnn.allow_tf32 = True
+@@ -196,7 +201,13 @@ def main(env_cfg: ManagerBasedRLEnvCfg | DirectRLEnvCfg | DirectMARLEnvCfg, agen
+ 
+     # create runner from rsl-rl
+     if agent_cfg.class_name == "OnPolicyRunner":
+-        runner = OnPolicyRunner(env, agent_cfg.to_dict(), log_dir=log_dir, device=agent_cfg.device)
++        # Use custom runner for external P73 tasks (enables custom algorithm kwargs such as bound_loss_cfg).
++        if args_cli.task is not None and args_cli.task.split(":")[-1].startswith("P73-"):
++            from isaaclab_p73.algorithms.rsl_rl import P73OnPolicyRunner  # noqa: WPS433
++
++            runner = P73OnPolicyRunner(env, agent_cfg.to_dict(), log_dir=log_dir, device=agent_cfg.device)
++        else:
++            runner = OnPolicyRunner(env, agent_cfg.to_dict(), log_dir=log_dir, device=agent_cfg.device)
+     elif agent_cfg.class_name == "DistillationRunner":
+         runner = DistillationRunner(env, agent_cfg.to_dict(), log_dir=log_dir, device=agent_cfg.device)
+     else:
+@@ -224,6 +235,6 @@ def main(env_cfg: ManagerBasedRLEnvCfg | DirectRLEnvCfg | DirectMARLEnvCfg, agen
+ 
+ if __name__ == "__main__":
+     # run the main function
+-    main()
++    main()  # pyright: ignore[reportCallIssue]
+     # close sim app
+     simulation_app.close()

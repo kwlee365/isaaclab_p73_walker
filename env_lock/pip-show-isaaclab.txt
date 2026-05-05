@@ -1,0 +1,23 @@
+Name: isaaclab
+Version: 0.54.3
+Summary: Extension providing main framework interfaces and abstractions for robot learning.
+Home-page: https://github.com/isaac-sim/IsaacLab
+Author: Isaac Lab Project Developers
+Author-email: 
+License: BSD-3-Clause
+Location: /home/piene/miniconda3/envs/p73/lib/python3.11/site-packages
+Editable project location: /home/piene/p73/IsaacLab/source/isaaclab
+Requires: daqp, dex-retargeting, einops, flaky, flatdict, gymnasium, hidapi, junitparser, numpy, onnx, packaging, pillow, pin-pink, prettytable, pyglet, pytest, pytest-mock, starlette, toml, torch, transformers, trimesh, warp-lang
+Required-by: 
+Files:
+  __editable__.isaaclab-0.54.3.pth
+  __editable___isaaclab_0_54_3_finder.py
+  __pycache__/__editable___isaaclab_0_54_3_finder.cpython-311.pyc
+  isaaclab-0.54.3.dist-info/INSTALLER
+  isaaclab-0.54.3.dist-info/METADATA
+  isaaclab-0.54.3.dist-info/RECORD
+  isaaclab-0.54.3.dist-info/REQUESTED
+  isaaclab-0.54.3.dist-info/WHEEL
+  isaaclab-0.54.3.dist-info/dependency_links.txt
+  isaaclab-0.54.3.dist-info/direct_url.json
+  isaaclab-0.54.3.dist-info/top_level.txt

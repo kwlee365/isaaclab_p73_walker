@@ -1,0 +1,2 @@
+isaacsim.__file__= /home/piene/miniconda3/envs/p73/lib/python3.11/site-packages/isaacsim/__init__.py
+ISAAC_PATH= /home/piene/miniconda3/envs/p73/lib/python3.11/site-packages/isaacsim
